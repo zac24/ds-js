@@ -25,7 +25,7 @@ function findMiddleOfLinkedlist(head){
 
     while(Math.floor(mid) > 0){
         head = head.next
-        mid -= 1
+        mid = mid - 1 
     }
 
     return head.value
