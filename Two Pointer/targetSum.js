@@ -42,5 +42,5 @@ function pairWithTargetSum(inputArr, target) {
 let input = [1, 2, 3, 4, 6], target=6
 let input1 = [2, 5, 9, 11], target1=11
 
-console.log(`pair of target sum for ${input} with target ${target} is`, pairWithTargetSum(input, target))
+console.log(`pair of target sum for ${input} with target ${target} is`, pairWithTargetSum(input, target))-
 console.log(`pair of target sum for ${input1} with target ${target1} is`, pairWithTargetSum(input1, target1))
