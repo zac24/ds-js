@@ -11,34 +11,56 @@ class Node {
     }
 }
 
-let intersection = function findIntersection(headA, headB){
-    let a = headA
-    let b = headB
+function inetrsection (headA, headB) {
+    let listA = headA
+    let listB = headB
 
-    while(a !== b){
-        a = !a ? headB : a.next
-        b = !b ? headA : b.next
+    while(listA !== listB){
+        listA = listA.next
+        listB = listB.next
+
+        if(listA === listB){
+            return listA
+        }
+
+        if(listA === null){
+            listA = headB
+        }
+        if(listB === null){
+            listB = headA
+        }
     }
-    return a
+
+    return listA
+
 }
 
-const head = new Node (2)
-head.next = new Node(4)
-head.next.next = new Node(6)
-head.next.next.next = new Node(8)
-head.next.next.next.next = new Node(9)
-head.next.next.next.next.next = new Node(10)
+// let intersection = function findIntersection(headA, headB){
+//     let a = headA
+//     let b = headB
 
+//     while(a !== b){
+//         a = !a ? headB : a.next
+//         b = !b ? headA : b.next
+//     }
+//     console.log()
+//     return a
+// }
 
-const secondHead  = new Node(1)
-secondHead.next = new Node(3)
-secondHead.next.next = new Node(5)
-secondHead.next.next.next = new Node(8)
-secondHead.next.next.next.next = new Node(9)
-secondHead.next.next.next.next.next= new Node(10)
+let list1 = new Node(4)
+list1.next = new Node(1)
+list1.next.next = new Node(8)
+list1.next.next.next = new Node(4)
+list1.next.next.next.next = new Node(5)
 
-mergeTwoLinkedlist(head, secondHead)
+let list2 = new Node(5)
+list2.next = new Node(6)
+list2.next.next = list1.next
+list2.next.next.next = list1.next.next
+list2.next.next.next.next = list1.next.next.next
+list2.next.next.next.next.next = list1.next.next.next.next
 
+console.log('Intersection of LinkedList =====>', intersection(list1, list2))
 
 
 
