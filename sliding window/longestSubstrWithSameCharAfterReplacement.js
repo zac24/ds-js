@@ -36,7 +36,6 @@ function longestSubstrWithSameCharAfterReplacement(str, k){
         if((end-start + 1) - maxRepeatCount > k){
             const leftChar = str[start]
             charMap[leftChar] -= 1
-
             start += 1
         }
         maxLength = Math.max(maxLength, end - start + 1)

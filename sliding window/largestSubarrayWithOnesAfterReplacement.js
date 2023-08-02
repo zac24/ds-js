@@ -18,20 +18,17 @@ Explanation: Replace the '0' at index 6, 9, and 10 to have the longest contiguou
 function longestSubarrayWithOnesAfterReplacement(inputArr, k){
     var start = 0 
     var maxLength = 0 
-    let maxRepeatCount = 0 
+    let maxOnesCount = 0 
     let charMap = {}
     for(end = 0; end < inputArr.length; end++){
-        const rightChar = inputArr[end]
-
-        if(!charMap.hasOwnProperty(rightChar)){
-            charMap[rightChar] = 0
+        if(inputArr[end] === 1){
+            maxOnesCount += 1
         }
-        charMap[rightChar] += 1
-        maxRepeatCount = Math.max(maxRepeatCount, charMap[rightChar])
 
-        if((end - start + 1) - maxRepeatCount > k){
-            const leftChar = charMap[start]
-            charMap[start] -= 1
+        if((end - start + 1) - maxOnesCount > k){
+            if(inputArr[start] === 1){
+                maxOnesCount -= 1
+            }
             start += 1
         }
         maxLength = Math.max(maxLength, end - start + 1)
