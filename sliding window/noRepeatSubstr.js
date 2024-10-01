@@ -19,21 +19,68 @@ Explanation: Longest substrings without any repeating characters are "abc" & "cd
 
 */
 
-function noRepeatSubstr(str){
+
+function noRepeatSubstr(input){
     let start = 0
+    let maxLength = 0 
     let charMap = {}
-    let maxLength = 0
-    const inputArr = str.split('')
-    for(end = 0; end < inputArr.length; end++){
-        const rightChar = inputArr[end]
+
+    for(end = 0; end < input.length; end++){
+        const rightChar = input[end]
+
         if(rightChar in charMap){
             start = Math.max(start, charMap[rightChar] + 1)
         }
+
         charMap[rightChar] = end
-        maxLength = Math.max(maxLength, end - start + 1)
+        maxLength = Math.max(maxLength, end - start +1)
     }
-    return maxLength 
+    return maxLength
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// function noRepeatSubstr(str){
+//     let start = 0
+//     let charMap = {}
+//     let maxLength = 0
+//     const inputArr = str.split('')
+//     for(end = 0; end < inputArr.length; end++){
+//         const rightChar = inputArr[end]
+//         if(rightChar in charMap){
+//             start = Math.max(start, charMap[rightChar] + 1)
+//         }
+//         charMap[rightChar] = end
+//         maxLength = Math.max(maxLength, end - start + 1)
+//     }
+//     return maxLength 
+// }
+
+
 
 console.log(`Length of longest Substring: ${noRepeatSubstr('aabccbb')}`)
 console.log(`Length of longest Substring: ${noRepeatSubstr('abbbb')}`)
