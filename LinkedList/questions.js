@@ -21,10 +21,10 @@
  * How to remove duplicates from a sorted linked list? (solution) - Done
  * How to find the node at which the intersection of two singly linked lists begins. (solution) - Done
  * How to check if a given linked list is a palindrome? (solution) - Done
- * How to remove all elements from a linked list of integers which match with given value? (solution)
- * How do you reverse a linked list? (solution)
+ * How to remove all elements from a linked list of integers which match with given value? (solution) - Done
+ * How do you reverse a linked list? (solution) - Done
  * How do you reverse a singly linked list without recursion? (solution)
- * How are duplicate nodes removed in an unsorted linked list? (solution)
- * How do you find the length of a singly linked list? (solution)
+ * How are duplicate nodes removed in an unsorted linked list? (solution) 
+ * How do you find the length of a singly linked list? (solution) - Done
  * 
  */
