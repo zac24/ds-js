@@ -22,27 +22,28 @@ Explanation: Smallest subarrays with a sum greater than or equal to '8' are [3, 
 
  */
 
-function smallestSubArray(inputArr, S){
-    var start = 0 
-    var smallestLength = Infinity
-    var sum = 0
-                                                                                       
-    for(end = 0; end < inputArr.length; end++){
-        sum += inputArr[end]
+function smallestSubArray (input, S) {
+    let start = 0 
+    let resultSum = 0 
+    smallestLength = Infinity
 
-        while(sum >= S){
-            smallestLength = Math.min(smallestLength, end - start + 1)
-            sum -= inputArr[start]
+    for(end = 0; end < input.length; end++){
+        resultSum += input[end]
+
+        while(resultSum >= S) {
+            smallestLength = Math.min (smallestLength, end - start + 1)
+            resultSum -= input[start]
             start += 1
         }
     }
 
-        if(smallestLength === Infinity ){
-            return 0
-        }
-        
-        return smallestLength
+    if(smallestLength === Infinity) {
+        return 0
+    }
+
+    return smallestLength; 
 }
+
 
 let input = [2, 1, 5, 2, 3, 2], S=7 
 let input1 = [2, 1, 5, 2, 8], S1=7 
@@ -51,3 +52,71 @@ let input2 = [3, 4, 1, 1, 6], S2=8
 console.log("The smallest subarray with given sum", smallestSubArray(input, S))
 console.log("The smallest subarray with given sum", smallestSubArray(input1, S1))
 console.log("The smallest subarray with given sum", smallestSubArray(input2, S2))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// function smallestSubArray(inputArr, S){
+//     var start = 0 
+//     var smallestLength = Infinity
+//     var sum = 0
+                                                                                       
+//     for(end = 0; end < inputArr.length; end++){
+//         sum += inputArr[end]
+
+//         while(sum >= S){
+//             smallestLength = Math.min(smallestLength, end - start + 1)
+//             sum -= inputArr[start]
+//             start += 1
+//         }
+//     }
+
+//         if(smallestLength === Infinity ){
+//             return 0
+//         }
+        
+//         return smallestLength
+// }
+
+// let input = [2, 1, 5, 2, 3, 2], S=7 
+// let input1 = [2, 1, 5, 2, 8], S1=7 
+// let input2 = [3, 4, 1, 1, 6], S2=8 
+
+// console.log("The smallest subarray with given sum", smallestSubArray(input, S))
+// console.log("The smallest subarray with given sum", smallestSubArray(input1, S1))
+// console.log("The smallest subarray with given sum", smallestSubArray(input2, S2))
