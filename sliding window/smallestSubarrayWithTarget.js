@@ -57,40 +57,6 @@ console.log("The smallest subarray with given sum", smallestSubArray(input2, S2)
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // function smallestSubArray(inputArr, S){
 //     var start = 0 
 //     var smallestLength = Infinity
