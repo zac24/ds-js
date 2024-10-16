@@ -19,33 +19,75 @@
     */
 
 
-function longestSubstringWithKDistinct(str, k){
-    var start = 0 
-    var longestSubstr = 0
-    let charMap = {}
-    var inputArr = str.split('')
 
-    for(end = 0; end < inputArr.length; end++){
-        const rightChar = inputArr[end] 
 
-        if(charMap.hasOwnProperty(rightChar)){
-            charMap[rightChar] += 1
+function longestSubstringWithKDistinct (input, k) {
+    let start = 0 
+    let charFreqMap = {}
+    let maxLength = 0 
+
+    for(end = 0; end < input.length; end ++){
+        const rightChar = input[end]
+
+        if(!charFreqMap.hasOwnProperty(rightChar)){
+            charFreqMap[rightChar] = 0
         }
-        charMap[rightChar] = 1
-
-        while(Object.keys(charMap).length > k){
-            const leftChar = inputArr[start]
-            charMap[leftChar] -= 1
-
-            if(charMap[leftChar] === 0){
-                delete charMap[leftChar]
+        charFreqMap[rightChar] += 1
+        
+        while(Object.keys(charFreqMap).length > k){
+            const leftChar = input[start]
+            charFreqMap[leftChar] -= 1
+            if (charFreqMap[leftChar] === 0){
+                delete charFreqMap[leftChar]
             }
+
             start += 1
         }
-        longestSubstr = Math.max(longestSubstr, end - start + 1)
+        maxLength = Math.max(maxLength, end - start + 1)
+        
     }
-    return longestSubstr
+    return maxLength
 }
+
+
+
+
+
+
+
+
+
+
+
+
+// function longestSubstringWithKDistinct(str, k){
+//     var start = 0 
+//     var longestSubstr = 0
+//     let charMap = {}
+//     var inputArr = str.split('')
+
+//     for(end = 0; end < inputArr.length; end++){
+//         const rightChar = inputArr[end] 
+
+//         if(charMap.hasOwnProperty(rightChar)){
+//             charMap[rightChar] += 1
+//         }
+//         charMap[rightChar] = 1
+
+//         while(Object.keys(charMap).length > k){
+//             const leftChar = inputArr[start]
+//             charMap[leftChar] -= 1
+
+//             if(charMap[leftChar] === 0){
+//                 delete charMap[leftChar]
+//             }
+//             start += 1
+//         }
+//         longestSubstr = Math.max(longestSubstr, end - start + 1)
+//     }
+//     return longestSubstr
+// }
+
 
 let input = "araaciccciii", K = 2
 let input1 = "araaci", K1 = 1
@@ -54,3 +96,4 @@ let input2 = "cbcceeeebebi", K2 = 3
 console.log("The longest subarray with K unique", longestSubstringWithKDistinct(input, K))
 console.log("The longest subarray with K unique", longestSubstringWithKDistinct(input1, K1))
 console.log("The longest subarray with K unique", longestSubstringWithKDistinct(input2, K2))
+
