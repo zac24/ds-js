@@ -23,30 +23,83 @@ Explanation: We can put 3 'B' in one basket and two 'C' in the other basket.
 This can be done if we start with the second letter: ['B', 'C', 'B', 'B', 'C']
  */
 
-function fruitBasket(arr) {
-    var start = 0 
-    var charMap = {}
-    var maxFruits = 0
-    for(var end = 0; end < arr.length; end++){
-        const rightChar = arr[end]
-        if(charMap.hasOwnProperty(rightChar)){
-            charMap[rightChar] += 1
+
+function fruitBasket(input) {
+    let start = 0;
+    let basketMap = {}
+    let maxLength = 0 
+
+    for(end = 0; end < input.length; end++){
+        const rightChar = input[end]
+        if(!basketMap.hasOwnProperty(rightChar)){
+            basketMap[rightChar] = 0 
         }
-        charMap[rightChar] = 1
-        console.log('charMap ===>', charMap)
-        while(Object.keys(charMap).length > 2){
-            const leftChar = arr[start]
-            charMap[leftChar] -= 1
-            if(charMap[leftChar] === 0){
-                delete charMap[leftChar]
+        basketMap[rightChar] += 1
+        
+        while(Object.keys(basketMap).length > 2){
+            const leftChar = input[start]
+            basketMap[leftChar] -= 1
+
+            if(basketMap[leftChar] === 0){
+                delete basketMap[leftChar]
             }
+
             start += 1
         }
-
-        maxFruits = Math.max(maxFruits, end - start + 1)
+        maxLength = Math.max(maxLength, end - start + 1)
     }
-    return maxFruits
+
+    return maxLength
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// function fruitBasket(arr) {
+//     var start = 0 
+//     var charMap = {}
+//     var maxFruits = 0
+//     for(var end = 0; end < arr.length; end++){
+//         const rightChar = arr[end]
+//         if(charMap.hasOwnProperty(rightChar)){
+//             charMap[rightChar] += 1
+//         }
+//         charMap[rightChar] = 1
+//         console.log('charMap ===>', charMap)
+//         while(Object.keys(charMap).length > 2){
+//             const leftChar = arr[start]
+//             charMap[leftChar] -= 1
+//             if(charMap[leftChar] === 0){
+//                 delete charMap[leftChar]
+//             }
+//             start += 1
+//         }
+
+//         maxFruits = Math.max(maxFruits, end - start + 1)
+//     }
+//     return maxFruits
+// }
 
 
 let input = ['A', 'B', 'C', 'A', 'C']
