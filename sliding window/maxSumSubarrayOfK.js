@@ -15,23 +15,45 @@ Explanation: Subarray with maximum sum is [3, 4].
 
 */ 
 
-function maxSumSubarrayOfK(input, k){
+// function maxSumSubarrayOfK(input, k){
    
+//     let start = 0
+//     let windowSum = 0 
+//     let resultSum = 0 
+//     for(end = 0; end < input.length - 1; end++){
+//         windowSum += input[end]
+//         if(end - start +1 >= k) {
+//             resultSum = Math.max(resultSum, windowSum)
+//             windowSum -= input[start]
+//             start += 1
+//         }
+//     }
+//     return resultSum
+
+// }
+
+// const input = [2, 1, 5, 1, 3, 2], k=3 
+
+// console.log('the Subarray with maximum sum is', maxSumSubarrayOfK(input, k))
+
+
+
+
+function maxSumSubarrayOfK(input, k){
     let start = 0
-    let windowSum = 0 
-    let resultSum = 0 
-    for(end = 0; end < input.length - 1; end++){
-        windowSum += input[end]
-        if(end - start +1 >= k) {
-            resultSum = Math.max(resultSum, windowSum)
-            windowSum -= input[start]
+    let maxSum = 0
+    let sum = 0
+    for(let end = 0; end < input.length; end++){
+        sum += input[end]
+        while(end - start + 1 >= k){
+            maxSum = Math.max(maxSum, sum)
+            sum -= input[start]
             start += 1
         }
     }
-    return resultSum
-
+    return maxSum 
 }
 
-const input = [2, 1, 5, 1, 3, 2], k=3 
+const input = [2, 3, 4, 1, 5], k=2
 
 console.log('the Subarray with maximum sum is', maxSumSubarrayOfK(input, k))

@@ -20,6 +20,42 @@ Explanation: Replace the 'b' or 'd' with 'c' to have the longest repeating subst
 
 */ 
 
+function longestSubstrWithSameCharAfterReplacement (input, K) {
+    const start = 0 
+    let maxLength = 0 
+    let 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function longestSubstrWithSameCharAfterReplacement(str, k){
     let start = 0 
     let maxLength = 0 
