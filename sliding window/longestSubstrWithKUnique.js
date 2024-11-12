@@ -20,34 +20,82 @@
 
 
 
-
-function longestSubstringWithKDistinct (input, k) {
+function longestSubstringWithKDistinct(input, K){
     let start = 0 
-    let charFreqMap = {}
+    let charMap = {}
     let maxLength = 0 
 
-    for(end = 0; end < input.length; end ++){
+    for (let end = 0; end < input.length; end++){
         const rightChar = input[end]
 
-        if(!charFreqMap.hasOwnProperty(rightChar)){
-            charFreqMap[rightChar] = 0
+        if(!charMap.hasOwnProperty(rightChar)){
+            charMap[rightChar] = 0
         }
-        charFreqMap[rightChar] += 1
-        
-        while(Object.keys(charFreqMap).length > k){
-            const leftChar = input[start]
-            charFreqMap[leftChar] -= 1
-            if (charFreqMap[leftChar] === 0){
-                delete charFreqMap[leftChar]
-            }
+        charMap[rightChar] += 1
 
+        while(Object.keys(charMap).length > K){
+            const leftChar = input[start]
+            charMap[leftChar] -= 1
+            if(charMap[leftChar] === 0){
+                delete charMap[leftChar]
+            } 
             start += 1
         }
-        maxLength = Math.max(maxLength, end - start + 1)
-        
+        maxLength = Math.max (maxLength, end - start + 1)
     }
     return maxLength
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// function longestSubstringWithKDistinct (input, k) {
+//     let start = 0 
+//     let charFreqMap = {}
+//     let maxLength = 0 
+
+//     for(end = 0; end < input.length; end ++){
+//         const rightChar = input[end]
+
+//         if(!charFreqMap.hasOwnProperty(rightChar)){
+//             charFreqMap[rightChar] = 0
+//         }
+//         charFreqMap[rightChar] += 1
+        
+//         while(Object.keys(charFreqMap).length > k){
+//             const leftChar = input[start]
+//             charFreqMap[leftChar] -= 1
+//             if (charFreqMap[leftChar] === 0){
+//                 delete charFreqMap[leftChar]
+//             }
+
+//             start += 1
+//         }
+//         maxLength = Math.max(maxLength, end - start + 1)
+        
+//     }
+//     return maxLength
+// }
+
+
+
 
 
 
