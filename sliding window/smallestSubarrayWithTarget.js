@@ -22,28 +22,27 @@ Explanation: Smallest subarrays with a sum greater than or equal to '8' are [3, 
 
  */
 
-function smallestSubArray (input, S) {
+function smallestSubArray(input, S){
     let start = 0 
     let resultSum = 0 
-    smallestLength = Infinity
+    let resultLength = Infinity
 
-    for(end = 0; end < input.length; end++){
+    for(let end = 0; end < input.length; end++){
         resultSum += input[end]
-
-        while(resultSum >= S) {
-            smallestLength = Math.min (smallestLength, end - start + 1)
+        
+        while(resultSum >= S){
+            resultLength = Math.min(resultLength, end - start + 1)
             resultSum -= input[start]
             start += 1
         }
     }
 
-    if(smallestLength === Infinity) {
+    if(resultLength === Infinity){
         return 0
     }
 
-    return smallestLength; 
+    return resultLength
 }
-
 
 let input = [2, 1, 5, 2, 3, 2], S=7 
 let input1 = [2, 1, 5, 2, 8], S1=7 
